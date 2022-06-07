@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 
 public class main {
+	//instance variables that are used to generate and play on Battleship
 	public static int row = 10;
 	public static int col = 10;
 	private static boolean[][] board = new boolean[row][col];
@@ -11,6 +12,7 @@ public class main {
 	private static String _name;
 	private static String _name2;
 	public static int cpu;
+	//
 	public static void main(String[] args0) {
 		for(int r = 0; r < board.length; r++) {
 			for(int c = 0; c < board[0].length; c++) {
