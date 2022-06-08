@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class Main {
-
+	/*main method that allows players to select what they want to do with the carDealership. Then when one of the buttons is selected, 
+	 * its allows the player to type any required specifications and then runs the code to achieve the wanted result
+	*/
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String[] models = {"F-250", "Explorer", "Transit Connect", "Escape", "Maverick"};
