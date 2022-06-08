@@ -3,12 +3,16 @@ package binarayConverter;
 import javax.swing.JOptionPane;
 
 public class Main {
+	//Instance variables used to use the binary converter
 	public static int[] bits = {128, 64, 32, 16, 8, 4, 2, 1};
 	public static String input = "";
+	//main method that runs method searchType which handles the rest of the program
 	public static void main(String args[]) {
 		searchType();
 	}
-	
+	/*allows players to select what they want to do with the binary converter. Then when one of the buttons is selected, 
+	 * its allows the player to type any required specifications and then calls the method in reference to that button
+	*/
 	public static void searchType() {
 		String[] options = {"Number to binary", "Binary to number" ,"exit"};
 		boolean loop = true;
@@ -28,6 +32,7 @@ public class Main {
 			}
 		}
 	}
+	//converts a player selected number from 1 to 255 into its binary equivalent
 	public static void numToBit(int num) {
 
 		String print = "";
@@ -68,7 +73,7 @@ public class Main {
 			Msg.msg("I gave you specific instructions");
 		}
 	}
-	
+	//converts a player selected 8 digit set of 1s and 0s into the number equivalent (a number from 1 to 255)
 	public static void bitToNum(String yes) {
 		String a = yes;
 		if(a.length() == 8) {
@@ -120,7 +125,7 @@ public class Main {
 			Msg.msg("Stupid");
 		}
 	}
-	
+	//shows the conversion table between binary and 1-255
 	public static String drawMap() {
 		String map = "1 1 1 1 1 1 1 1" + "\n" + "128, 64, 32, 16, 8, 4, 2, 1";
 		return map;
