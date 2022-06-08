@@ -12,7 +12,8 @@ public class main {
 	private static String _name;
 	private static String _name2;
 	public static int cpu;
-	//
+	/*main method that first creates 2 empty boards and then using ships() and ships2() adds the ships to the boards
+	* and then runs searchType that handles the rest of the program
 	public static void main(String[] args0) {
 		for(int r = 0; r < board.length; r++) {
 			for(int c = 0; c < board[0].length; c++) {
@@ -28,7 +29,9 @@ public class main {
 		ships2();
 		searchType();
 	}
-
+	/*allows players to select what they want to do with the Battleship game. Then when one of the buttons is selected, 
+	 * its allows the player to type any required specifications and then calls the method in reference to that button
+	*/
 	public static void searchType() {
 			Msg.msg("Welcome to battleship!");
 			Msg.msg("The rules of this game are simple: " + "\n" + "1. You are given a board with ships" + "\n" + "2. You have 1 small ship, 1 medium ship, and 1 large ship" + "\n" + "3. To play you press fire, then input a row and a column"  + "\n" + "4. If you land a hit on an emeny ship, you get to fire again!" + "\n" + "5. Destroying all the enemy ships means victory" + "\n" + "6. You can fight another player, or a cpu, the same rules apply for both expect that there is a transition screen between player 1 and 2 (so no cheating)");
@@ -176,7 +179,7 @@ public class main {
 				Msg.msg("Closing Battleship");
 			}
 	}
-	
+	//Generates player 1's map
 	private static String drawMap() {
 		String map = "";
 		for(int r = 0; r < board.length; r++) {
@@ -194,7 +197,7 @@ public class main {
 			}
 		return map;
 	}
-	
+	//generates player 2's and the CPU's map
 	private static String drawMap2() {
 		String map = "";
 		for(int r = 0; r < board2.length; r++) {
@@ -212,27 +215,7 @@ public class main {
 		}
 		return map;
 	}
-	
-	
-	private static String drawMapCPU() {
-		String map = "";
-		ships();
-		for(int r = 0; r < board.length; r++) {
-			for(int c = 0; c < board[0].length; c++) {
-				if(board[r][c]) {
-					map+= "O";
-					map+= " ";
-				}
-				else if(!board[r][c]) {
-						map+= "X";
-						map+= " ";
-					}
-				}
-			map += "\n";
-			}
-		return map;
-	}
-	
+	//adds the ships to player 1 map
 	public static void ships() {
 		board[2][3] = false;
 		board[2][4] = false;
@@ -246,7 +229,7 @@ public class main {
 		board[8][0] = false;
 		board[9][0] = false;
 	}
-	
+	//adds the ships to player 2 and CPU map
 	public static void ships2() {
 		board2[3][2] = false;
 		board2[4][2] = false;
@@ -260,7 +243,7 @@ public class main {
 		board2[0][3] = false;
 		board2[0][4] = false;
 	}
-	
+	//reveals the location of player 2's or CPU's ships if Player 1's name is Rico
 	public static void ricoCheat() {
 		if(_name.equals("Rico") || _name.equals("rico")) {
 			board[3][2] = false;
@@ -276,7 +259,7 @@ public class main {
 			board[0][4] = false;
 		}
 	}
-	
+	//reveals the location of player 1's ships if Player 2's name is Rico
 	public static void ricoCheat2() {
 		if(_name2.equals("Rico") || _name2
 				.equals("rico")) {
@@ -293,6 +276,7 @@ public class main {
 			board2[9][0] = false;
 		}
 	}
+	//method used by Player 1 to fire and change player 2's or CPU's board if there is a hit
 	public static boolean fire(int r, int c) {
 		if(board2[r][c] == true) {
 			return false;
@@ -301,7 +285,7 @@ public class main {
 		board2[r][c] = true;
 		return true;
 	}
-	
+	//method used by Player 2 to fire and change player 1's board if there is a hit
 	public static boolean fire2(int rs, int cl) {
 		if(board[rs][cl] == true) {
 			return false;
@@ -309,7 +293,7 @@ public class main {
 		board[rs][cl] = true;
 		return true;
 	}
-	
+	//CPU's firing method
 	public static int setHit() {
 		cpu = (int)(Math.random()*board.length);
 		return cpu;
